@@ -1,0 +1,847 @@
+.quantico-regular {
+  font-family: "Quantico", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.quantico-bold {
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.quantico-regular-italic {
+  font-family: "Quantico", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.quantico-bold-italic {
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Quantico", sans-serif;
+  width: 100%;
+  height: 100vh;
+  background-color: #555;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* -------- Containers --------- */
+.container {
+  width: 40rem;
+  height: 90vh;
+  background-color: #0e121b;
+  border-radius: 2rem;
+  color: #fff;
+}
+
+/* ------------ Buttons ---------- */
+/* --------- mode-style-------------- */
+
+/* ---------- CLOCK ------------- */
+.dynamic-item {
+  margin: 5px;
+  padding: 10px;
+  background-color: lightblue;
+  cursor: pointer;
+}
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2rem;
+}
+.btn-clock {
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #9a49ff;
+  color: #000;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0.1rem -0.1rem 0 #000000 inset;
+}
+
+.clock-type {
+  position: relative;
+  width: 35rem;
+  height: 20rem;
+  margin: 2rem auto;
+  margin-bottom: -2rem;
+  padding-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.digital-clock {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20rem;
+}
+
+.pm_am--state {
+  font-size: 10rem;
+  transform: rotate(90deg);
+  color: #4a4d55;
+}
+.digital-timer {
+  z-index: 20;
+  font-size: 12rem;
+  color: #9a49ff;
+  font-family: "Quantico", sans-serif;
+  letter-spacing: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.digital-hour {
+  margin-bottom: -5rem;
+}
+.today-date {
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.4rem;
+  margin-top: 7rem;
+}
+/* ////////////////////////////////////// */
+
+.analog {
+  width: 21rem;
+  height: 21rem;
+  border-radius: 2.5rem;
+  background-color: #ffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clock {
+  border-radius: 50%;
+  position: relative;
+  width: 16rem;
+  height: 16rem;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -0.2rem 0.3rem 0.2rem #817e7e inset,
+    0.3rem -0.2rem 0.4rem #554f4f inset;
+  transform: rotate(-90deg);
+}
+
+.hand {
+  position: absolute;
+  background: #000;
+  transform-origin: bottom;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hour {
+  width: 0.45rem;
+  height: 4rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+.minute {
+  width: 0.3rem;
+  height: 5rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+.second {
+  width: 0.2rem;
+  height: 6.5rem;
+  background: #9a49ff;
+}
+
+.center {
+  position: absolute;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: #9a49ff;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Clock */
+
+.core {
+  width: 1rem;
+  height: 1rem;
+  background-color: #9a49ff;
+  border-radius: 50%;
+  z-index: 8;
+}
+.sign6,
+.sign12 {
+  width: 0.2rem;
+  height: 1.5rem;
+  background-color: #000;
+  margin: 0.6rem 0;
+}
+.sign3,
+.sign9 {
+  width: 1.5rem;
+  height: 0.2rem;
+  background-color: #000;
+  margin: 0 0.6rem;
+}
+/* ------12 */
+.sign3 {
+  position: absolute;
+  top: 50%;
+  right: -0.4rem;
+  transform: translateY(-50%);
+}
+/* ///3 */
+.sign6 {
+  position: absolute;
+  bottom: -0.5rem;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+/* ----9 */
+.sign12 {
+  position: absolute;
+  top: -0.5rem;
+  right: 50%;
+  transform: translateX(50%);
+}
+/* -----6 */
+.sign9 {
+  position: absolute;
+  top: 50%;
+  left: -0.5rem;
+  transform: translateY(-50%);
+}
+
+/* --------- Weather Container -------- */
+
+.weather-container {
+  width: 32rem;
+  height: 28rem;
+  position: absolute;
+  top: 7rem;
+  left: 4rem;
+  background-color: #fff;
+  font-size: 1.8rem;
+  color: #000;
+  border-radius: 2.5rem;
+}
+.location {
+  margin: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  font-size: 2.4rem;
+}
+.main__weather-conditions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.tempp {
+  font-size: 2.4rem;
+}
+.state {
+  font-size: 1.8rem;
+}
+.weather__conditions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+  margin-top: 2rem;
+}
+.rate {
+  text-align: center;
+}
+.wind-icon,
+.humidity-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  fill: #9a49ff;
+}
+/* ------ world clock ------- */
+
+.world-clock--container {
+  width: 40rem;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+.plus-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.world-clock--title {
+  font-size: 2.4rem;
+  padding: 2rem;
+}
+
+.plus-btn {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background-color: #9a49ff;
+  color: #ffff;
+  cursor: pointer;
+  box-shadow: 0.1rem -0.1rem 0 #000000 inset;
+  font-size: 4.6rem;
+  margin-right: 2rem;
+}
+.search-container {
+  width: 35rem;
+  position: absolute;
+  top: 15rem;
+  left: 2rem;
+}
+.search-box {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border-bottom: 0.2rem solid #ffff;
+}
+.search-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  width: 30rem;
+  height: 20rem;
+  border-radius: 2.5rem;
+  background-color: #9a49ff;
+  margin: 0 auto;
+  padding: 3rem;
+}
+.search-data {
+  background-color: #ffff;
+  color: #000;
+  width: 90%;
+  margin: 1.2rem auto;
+}
+
+.line {
+  width: 100%;
+  height: 2rem;
+  background-color: #0e121b;
+}
+.search-icon {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.search-icon:hover {
+  transform: scale(1.2);
+}
+.search-input {
+  font-family: "Quantico", sans-serif;
+  width: 70%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  padding: 0 2rem;
+  font-size: 2.8rem;
+  margin-left: 2rem;
+  outline: none;
+  color: #ffffff;
+}
+.search-input::placeholder {
+  color: #aaa;
+  font-size: 2.4rem;
+  border: none;
+}
+
+.city-location {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 1.8rem;
+}
+.city-name {
+  margin: 1rem;
+}
+.city-time {
+  font-size: 2.8rem;
+  margin: 1rem 0;
+}
+.city-weather {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.temp-city,
+.state-city {
+  font-size: 1.4rem;
+}
+.close {
+  width: 3rem;
+  height: 3rem;
+  background-color: #9a49ff;
+  border: none;
+  color: #fff;
+  font-size: 2.4rem;
+  cursor: pointer;
+}
+.close:hover {
+  background-color: #bd2d2d;
+  color: #fff;
+}
+.city-info {
+  font-size: 1.8rem;
+  width: 100%;
+  height: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+}
+.add-city {
+  border-radius: 1rem;
+  font-size: 2.4rem;
+  width: 100%;
+  height: 15rem;
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+  margin: -2rem auto;
+}
+.add-city:hover {
+  background-color: #c1f600;
+  color: #000;
+}
+/*-------- Stopwatch ---------*/
+
+.stopwatch-container {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  color: #fff;
+}
+
+.lap-container {
+  width: 100%;
+  height: 18rem;
+  margin: 0 auto;
+}
+
+.stopwatch-timer {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4.6rem;
+  padding: 2rem 0;
+}
+
+.stopwatch-buttons {
+  width: 100%;
+  height: 8rem;
+  position: absolute;
+  bottom: 9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.btn {
+  border-radius: 50px;
+  font-size: 2.4rem;
+  width: 15rem;
+  height: 6rem;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0.4rem 0.5rem #000, -0.1rem 0.2rem #fff inset;
+}
+.lap-data {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 40rem;
+  height: 4rem;
+  font-size: 1.8rem;
+}
+.letter-spacing {
+  letter-spacing: 0.1rem;
+}
+.lap-timer {
+  font-size: 3.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.lap-titles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5.5rem;
+  font-size: 1.6rem;
+  border-bottom: 0.1rem solid #9a49ff;
+  width: 34rem;
+  height: 5rem;
+  margin: 0 auto;
+}
+::-webkit-scrollbar {
+  width: 12px; /* Width of the vertical scrollbar */
+  height: 12px; /* Height of the horizontal scrollbar */
+}
+
+/* Track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the track */
+  border-radius: 10px;
+}
+
+/* Handle (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+  background: #9a49ff; /* Color of the handle */
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #c1f600; /* Color of the handle on hover */
+}
+
+.mode--active {
+  display: flex;
+  font-size: 2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  height: 5rem;
+}
+.lap-stopwatch {
+  background-color: #4a4d55;
+}
+.reset-stopwatch {
+  background-color: #bd2d2d;
+  color: #fff;
+}
+.start-stopwatch {
+  background-color: #9a49ff;
+}
+.resume-stopwatch {
+  background-color: #c1f600;
+  color: #000000;
+}
+.stop-stopwatch {
+  background-color: #bd2d2d;
+  color: #ffff;
+}
+.stopwatch-milli {
+  font-size: 2.4rem;
+  margin-top: 1.5rem;
+}
+.laptimer-milli {
+  font-size: 2rem;
+}
+/* ------- timer ---------- */
+
+/* ---------- Determine the timeof timer ----------- */
+.determine-timer {
+  width: 40rem;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.timer-title {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  width: 100%;
+  height: 5rem;
+}
+.start-timer-button {
+  height: 6rem;
+  width: 15rem;
+  font-size: 2.4rem;
+  background-color: #9a49ff;
+  margin-bottom: -4rem;
+}
+.start-timer-button:hover {
+  background-color: rgb(6, 82, 6);
+  color: #ffff;
+}
+.timer-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5rem;
+  font-size: 4.2rem;
+  color: #fff;
+  text-align: center;
+}
+.input {
+  width: 9rem;
+  height: 9rem;
+  background-color: transparent;
+  font-size: 5.4rem;
+  color: #fff;
+  border: none;
+  text-align: center;
+  outline: none;
+}
+.input::placeholder {
+  color: #4a4d55;
+  font-size: 5.4rem;
+  font-style: normal;
+  margin-bottom: 300rem;
+  text-align: center;
+}
+/* ------- start timer ----------*/
+.start-timer {
+  width: 100%;
+  height: 78vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  text-align: center;
+  position: relative;
+}
+.timer {
+  width: 100%;
+  height: 40rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.timer-circle {
+  width: 28rem;
+  height: 28rem;
+  border-radius: 50%;
+  background-color: #070609;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+}
+.total-timer-time {
+  font-size: 2.4rem;
+}
+.timer-buttons {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: -5rem;
+}
+.start-timer-button {
+  width: 15rem;
+  height: 6rem;
+  font-size: 2.4rem;
+}
+.delete-timer-btn,
+.pause-timer-btn {
+  width: 15rem;
+  height: 6rem;
+  font-size: 2.4rem;
+  background-color: #9a49ff;
+  margin-bottom: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pause-timer-btn {
+  background-color: #999;
+}
+.delete-timer-btn:hover {
+  background-color: #bd2d2d;
+  color: #ffff;
+}
+.finished-timer-time,
+.total-timer-time {
+  font-size: 2rem;
+}
+.resume-btn {
+  background-color: #c1f600;
+  color: #000000;
+}
+.audio-container {
+  width: 32rem;
+  height: 15rem;
+  background-color: #fff;
+  color: #000000;
+  position: absolute;
+  top: 3%;
+  right: 10%;
+  border-radius: 2rem;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.reverse-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+}
+.reverse-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.2rem;
+  margin-top: -2rem;
+}
+.reverse-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+.hourglass {
+  margin: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+}
+.dismiss,
+.restart {
+  background-color: #c1f600;
+  color: #000000;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0.2rem 0.3rem #000, -0.1rem 0.2rem #fff inset;
+}
+.btn-alarm:hover {
+  background-color: #070609;
+  color: #fff;
+}
+/* ----------- operation tab design --------- */
+.operations__tab-container {
+  height: 6vh;
+  width: 40rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4rem;
+  position: fixed;
+  bottom: 5rem;
+  border: none;
+  background-color: transparent;
+}
+.operation__tab {
+  width: 3.5rem;
+  height: 3.5rem;
+  stroke: #4a4d55;
+  fill: #4a4d55;
+  stroke-width: 0.025rem;
+  cursor: pointer;
+}
+.operation__tab:hover {
+  transform: scale(1.4);
+  border-bottom: 2px solid #9a49ff;
+  stroke: #2a0557;
+  fill: #000000;
+}
+.hidden {
+  display: none;
+}
+
+.operations__tab--active {
+  text-decoration: underline;
+  fill: #9a49ff;
+  stroke: #9a49ff;
+  transform: scale(1.2);
+  border: none;
+}
+.operations__content {
+  display: none;
+}
+.operations__content--active {
+  display: block;
+}
+.scroll--active {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  text-overflow: unset;
+  white-space: nowrap;
+}
+.world-clock--active {
+  background-color: #9a49ff;
+  color: #000;
+}

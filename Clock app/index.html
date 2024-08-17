@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+ <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gupter:wght@400;500;700&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="queries.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- --------- operations ------------- -->
+      <div class="operations">
+        <!-- ---------- CLOCK ----------------- -->
+        <div
+          class="clock-container operations__content--active operations__content operations__content--1"
+          data-tab="1"
+        >
+        
+          <div class="buttons">
+            <button class="mode-btn btn-clock">
+              <img src="images/sunn.png" alt="sun mode" class="day">
+              <img src="images/moon.png" alt="night mode" class="night hidden">
+            </button>
+            <button class="clock_type--btn btn-clock">
+              <img src="images/digitalclock.png" alt="digital-clock" class="digital-img">
+              <img src="images/clock.png" alt="analog clock" class="analog-img hidden">
+              </svg>
+            </button>
+            <button class="weather-btn btn-clock">
+              <img src="images/suncloud.png" alt="weather" />
+             
+            </button>
+          </div>
+
+          <div class="clock-type">
+            <div class="analog">
+              <div class="clock">
+                <div class="sign3"></div>
+                <div class="sign6"></div>
+                <div class="sign12"></div>
+                <div class="sign9"></div>
+                <div class="core"></div>
+                <div class="hand hour" id="hourHand"></div>
+                <div class="hand minute" id="minuteHand"></div>
+                <div class="hand second" id="secondHand"></div>
+              </div>
+            </div>
+            <div class="digital-clock hidden">
+        
+              <div class="digital-timer">
+                <p class="digital-hour"></p>
+                <p class="digital-minute"></p>
+              </div>
+              <p class="pm_am--state"></p>
+              
+            </div>
+          </div>
+          <h3 class="today-date letter-spacing"></h3>
+          <div class="weather-container hidden">
+            <div class="location">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                style="fill: rgba(0, 0, 0, 1); transform: msfilter"
+              >
+                <circle cx="12" cy="12" r="4"></circle>
+                <path
+                  d="M13 4.069V2h-2v2.069A8.01 8.01 0 0 0 4.069 11H2v2h2.069A8.008 8.008 0 0 0 11 19.931V22h2v-2.069A8.007 8.007 0 0 0 19.931 13H22v-2h-2.069A8.008 8.008 0 0 0 13 4.069zM12 18c-3.309 0-6-2.691-6-6s2.691-6 6-6 6 2.691 6 6-2.691 6-6 6z"
+                ></path>
+              </svg>
+              Iran, Sirjan
+            </div>
+            <div class="main__weather-conditions">
+              <div class="weather-show">
+                <img alt="weather" src="images/Clear.png" class="weather-img" />
+              </div>
+              <div class="main">
+                <p class="tempp"></p>
+                <p class="state"></p>
+              </div>
+            </div>
+            <div class="weather__conditions">
+              <div class="wind">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="wind-icon icons"
+                  viewBox="0 0 24 24"
+                  style="fill: #9a49ff; transform: msfilter"
+                >
+                  <path
+                    d="M13 5.5C13 3.57 11.43 2 9.5 2 7.466 2 6.25 3.525 6.25 5h2c0-.415.388-1 1.25-1 .827 0 1.5.673 1.5 1.5S10.327 7 9.5 7H2v2h7.5C11.43 9 13 7.43 13 5.5zm2.5 9.5H8v2h7.5c.827 0 1.5.673 1.5 1.5s-.673 1.5-1.5 1.5c-.862 0-1.25-.585-1.25-1h-2c0 1.475 1.216 3 3.25 3 1.93 0 3.5-1.57 3.5-3.5S17.43 15 15.5 15z"
+                  ></path>
+                  <path
+                    d="M18 5c-2.206 0-4 1.794-4 4h2c0-1.103.897-2 2-2s2 .897 2 2-.897 2-2 2H2v2h16c2.206 0 4-1.794 4-4s-1.794-4-4-4zM2 15h4v2H2z"
+                  ></path>
+                </svg>
+                WIND
+                <p class="wind-rate rate"></p>
+              </div>
+              <div class="humidity">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="humidity-icon icons"
+                >
+                  <path
+                    d="M5.63604 6.63288L12 0.268921L18.364 6.63288C21.8787 10.1476 21.8787 15.8461 18.364 19.3608C14.8492 22.8755 9.15076 22.8755 5.63604 19.3608C2.12132 15.8461 2.12132 10.1476 5.63604 6.63288H5.63604ZM12 3.09735L7.05025 8.0471C5.7835 9.31385 5 11.0638 5 12.9968H19C19 11.0638 18.2165 9.31385 16.9497 8.0471L12 3.09735Z"
+                  ></path>
+                </svg>
+                HUMIDITY
+                <p class="humidity-percentage rate"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ------------ WORLD CLOCK ------------- -->
+        <div
+          class="world-clock--container operations__content operations__content--2"
+          data-tab="2"
+        >
+            <div class="plus-container">
+              <h3 class="world-clock--title">World Clock</h3>
+            <button class="plus-btn">+</button>
+            </div>
+            <div class="search-data">
+
+            </div>
+            <div class="search-container ">
+              <div class="search-box hidden">
+              <input type="text" placeholder="City Name" class="search-input" />
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="58"
+                  height="58"
+                  viewBox="0 0 24 24"
+                  class="search-icon search-btn"
+                  style="fill: #9a49ff; transform: msfilter"
+                >
+                  <path
+                    d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"
+                  ></path>
+                  <path
+                    d="M11.412 8.586c.379.38.588.882.588 1.414h2a3.977 3.977 0 0 0-1.174-2.828c-1.514-1.512-4.139-1.512-5.652 0l1.412 1.416c.76-.758 2.07-.756 2.826-.002z"
+                  ></path>
+                </svg>
+            </div>
+            <div class="search-info">              
+            </div>
+            </div>
+           
+        </div>
+        <!-- ----------STOPWATCH---------- -->
+        <div
+          class="stopwatch-container operations__content operations__content--3"
+          data-tab="3"
+        >
+          <p class="letter-spacing stopwatch-timer"><span class="stopwatch-hour">00</span>: <span class="stopwatch-minute">00</span>: <span class="stopwatch-second">00</span>.<span class="stopwatch-milli">00</span></p>
+
+          <p class="letter-spacing lap-timer hidden"><span class="laptimer-hour">00</span>: <span class="laptimer-minute">00</span>: <span class="laptimer-second">00</span>.<span class="laptimer-milli">00</span></p>
+          <div class="lap-titles hidden">
+            <p>Lap</p>
+            <p>Lap times</p>
+            <p>Overall time</p>
+          </div>
+          <div class="lap-container"></div>
+
+          <div class="stopwatch-buttons">
+            <button class="btn stopwatch-btn lap-stopwatch">Lap</button>
+            <button class="btn stopwatch-btn start-stopwatch">Start</button>
+          </div>
+        </div>
+
+        <!------------ Timer --------------->
+        <div
+          class="timer-container operations__content operations__content--4"
+          data-tab="4"
+        >
+          <div class="determine-timer">
+            <p class="timer-title">
+              <span>Hours</span>
+              <span>Minutes</span>
+              <span>Seconds</span>
+            </p>
+            <div class="determine-timer-time timer-time">
+              <input
+                type="number"
+                class="input hours-timer"
+                placeholder="00"
+                min="0"
+                max="59"
+              />:<input
+                type="number"
+                class="input minutes-timer"
+                placeholder="00"
+                min="0"
+                max="59"
+              />:<input
+                type="number"
+                class="input seconds-timer"
+                placeholder="00"
+                min="0"
+                max="59"
+              />
+            </div>
+            <button class="btn start-timer-button">Start</button>
+          </div>
+          <div class="start-timer hidden">
+            <div class="audio-container hidden">
+              <div class="reverse-box">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  class="hourglass"
+                  style="fill: #000; transform: msfilter"
+                >
+                  <path
+                    d="M5 2H4v2h1v1a7.014 7.014 0 0 0 3.433 6.02c.355.21.567.547.567.901v.158c0 .354-.212.691-.566.9A7.016 7.016 0 0 0 5 19v1H4v2h16v-2h-1v-1a7.016 7.016 0 0 0-3.434-6.021c-.354-.208-.566-.545-.566-.9v-.158c0-.354.212-.69.566-.9A7.016 7.016 0 0 0 19 5V4h1V2H5zm12 3a5.01 5.01 0 0 1-2.45 4.299A3.107 3.107 0 0 0 13.166 11h-2.332a3.114 3.114 0 0 0-1.385-1.702A5.008 5.008 0 0 1 7 5V4h10v1z"
+                  ></path>
+                </svg>
+                <p class="alarm-title">Clock 22:14</p>
+              </div>
+              <p class="reverse-timer">
+                - <span class="reverse-hour">00</span> :
+                <span class="reverse-minute">00</span> :
+                <span class="reverse-second">00</span>
+              </p>
+              <div class="reverse-buttons">
+                <button class="dismiss btn-alarm">Dismiss</button>
+                <button class="restart btn-alarm">Restart</button>
+              </div>
+            </div>
+            <div class="timer">
+              <div class="timer-circle">
+                <p class="total-timer-time"></p>
+                <p class="start-timer-time timer-time">
+                  <span class="total-hour"></span> :
+                  <span class="total-minute"></span> :
+                  <span class="total-second"></span>
+                </p>
+                <div class="finished-timer-time">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    style="fill: #fcff49; transform: msfilter"
+                  >
+                    <path
+                      d="m5.705 3.71-1.41-1.42C1 5.563 1 7.935 1 11h1l1-.063C3 8.009 3 6.396 5.705 3.71zm13.999-1.42-1.408 1.42C21 6.396 21 8.009 21 11l2-.063c0-3.002 0-5.374-3.296-8.647zM12 22a2.98 2.98 0 0 0 2.818-2H9.182A2.98 2.98 0 0 0 12 22zm7-7.414V10c0-3.217-2.185-5.927-5.145-6.742C13.562 2.52 12.846 2 12 2s-1.562.52-1.855 1.258C7.184 4.073 5 6.783 5 10v4.586l-1.707 1.707A.996.996 0 0 0 3 17v1a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-1a.996.996 0 0 0-.293-.707L19 14.586z"
+                    ></path>
+                  </svg>
+                  <span class="finished-time"></span>
+                </div>
+              </div>
+            </div>
+            <div class="timer-buttons">
+              <button class="btn delete-timer-btn">Delete</button>
+              <button class="btn pause-timer-btn">Pause</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- -------------- operation-tabs-------------------------- -->
+
+      <div class="operations__tab-container">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="34"
+          height="34"
+          viewBox="0 0 24 24"
+          class="operation__tab operations__tab--1"
+          data-tab="1"
+          style="fill: #4a4d55; transform: msfilter"
+        >
+          <path
+            d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
+          ></path>
+          <path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"></path>
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="34"
+          height="34"
+          viewBox="0 0 24 24"
+          class="operation__tab operations__tab--2"
+          data-tab="2"
+          style="fill: #4a4d55; transform: msfilter"
+        >
+          <path
+            d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zM4 12c0-.899.156-1.762.431-2.569L6 11l2 2v2l2 2 1 1v1.931C7.061 19.436 4 16.072 4 12zm14.33 4.873C17.677 16.347 16.687 16 16 16v-1a2 2 0 0 0-2-2h-4v-3a2 2 0 0 0 2-2V7h1a2 2 0 0 0 2-2v-.411C17.928 5.778 20 8.65 20 12a7.947 7.947 0 0 1-1.67 4.873z"
+          ></path>
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="34"
+          height="34"
+          viewBox="0 0 24 24"
+          class="operation__tab operations__tab--3"
+          data-tab="3"
+          style="fill: #4a4d55; transform: msfilter"
+        >
+          <path
+            d="M12 5c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zm0 14c-3.309 0-6-2.691-6-6s2.691-6 6-6 6 2.691 6 6-2.691 6-6 6z"
+          ></path>
+          <path
+            d="M11 9h2v5h-2zM9 2h6v2H9zm10.293 5.707-2-2 1.414-1.414 2 2z"
+          ></path>
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="34"
+          height="34"
+          viewBox="0 0 24 24"
+          class="operation__tab operations__tab--4"
+          data-tab="4"
+          style="fill: #4a4d55; transform: msfilter"
+        >
+          <path
+            d="M15.566 11.021A7.016 7.016 0 0 0 19 5V4h1V2H4v2h1v1a7.016 7.016 0 0 0 3.434 6.021c.354.208.566.545.566.9v.158c0 .354-.212.69-.566.9A7.016 7.016 0 0 0 5 19v1H4v2h16v-2h-1v-1a7.014 7.014 0 0 0-3.433-6.02c-.355-.21-.567-.547-.567-.901v-.158c0-.355.212-.692.566-.9zm-1.015 3.681A5.008 5.008 0 0 1 17 19v1H7v-1a5.01 5.01 0 0 1 2.45-4.299c.971-.573 1.55-1.554 1.55-2.622v-.158c0-1.069-.58-2.051-1.551-2.623A5.008 5.008 0 0 1 7 5V4h10v1c0 1.76-.938 3.406-2.449 4.298C13.58 9.87 13 10.852 13 11.921v.158c0 1.068.579 2.049 1.551 2.623z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>
